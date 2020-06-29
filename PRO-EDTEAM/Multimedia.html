@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia</title>
+    <style>
+        video{
+
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    
+    <video src="/Multimdia/Kristall Nano Liquid Screen Protector.mp4" poster="/img/video.jpg" id="video"></video>
+    <audio src="/Multimdia/Fall Out Boy_The Phoenix.mp3" controls autoplay></audio>
+    
+    <button id="play">Play</button>
+    <button id="pause">Pause</button>
+
+    <script>
+        const video = document.getElementById('video');
+        const play = document.getElementById('play');
+        const pause = document.getElementById('pause');
+        
+        play.addEventListener('click', () => {
+            video.play();
+        })
+        pause.addEventListener('click', () => {
+            video.pause();
+        })
+    </script>
+</body>
+</html>

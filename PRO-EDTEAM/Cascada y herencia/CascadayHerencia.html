@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cascada y Herencia</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        p {
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 35px;
+        }
+        
+        .importancia {
+            background-color: orange /*!important*/;
+        }
+        
+        #importancia {
+            background-color: gray;
+        }
+        
+        
+        /* Estilos de las tablas */
+        
+        table {
+            border-collapse: collapse;
+            border: 2px solid rgb(200, 200, 200);
+            letter-spacing: 1px;
+            font-size: 1rem;
+            margin: 0 auto;
+            margin-bottom: 4em;
+        }
+        
+        td,
+        th {
+            border: 1px solid rgb(190, 190, 190);
+            padding: 10px 20px;
+        }
+        
+        td {
+            text-align: center;
+        }
+        
+        thead {
+            background-color: rgb(235, 235, 235);
+        }
+        
+        tbody {
+            font-style: italic;
+        }
+        
+        tfoot {
+            font-weight: bold;
+        }
+        
+        caption {
+            padding: 15px;
+        }
+        
+        
+        /* Grid */
+        
+        .contenedor {
+            margin: 50px auto;
+            width: 90%;
+            height: 500px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .lista {
+            font-size: 1.5rem;
+            font-family: sans-serif;
+            padding: 0 35px;
+        }
+        
+        h1 {
+            text-align: center;
+            font-family: sans-serif;
+            margin-top: 25px;
+        }
+        
+        .orden {
+            width: 50%;
+            height: 100px;
+            margin: 15px auto;
+            background-color: red;
+        }
+        
+        .orden {
+            background-color: pink;
+        }
+        
+        .herencia {
+            color: red;
+            border: 5px dashed red;
+        }
+        
+        .parrf {
+            color: initial;
+            border: inherit;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <!--  Importancia  -->
+    <div class="importancia" id="importancia">
+        <p>Importancia</p>
+    </div>
+
+    <!--  Especificidad  -->
+    <<h1>Especificidad</h1>
+    <div class="contenedor">
+        <div class="lista">
+            <ol>
+                <li>Unidades de millar: Puntúa 1 en esta columna si la declaración está dentro de un atributo style (como las declaraciones que no tienen selectores, que su especificidad es siempre 1000). Sino puntúa 0.
+                </li>
+                <li>Centenas: Puntúa 1 en esta columna por cada selector ID contenido en el selector.</li>
+                <li>Decenas: Puntúa 1 en esta columna para cada selector de clase, selector de atributo o de pseudo-clase contenidos en el selector.</li>
+                <li>Unidades: Puntúa 1 en esta columna por cada selector de elemento o pseudo-elemento contenidos en el selector.
+                </li>
+            </ol>
+        </div>
+        <div class="tabla">
+            <table class="standard-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Selector</th>
+                        <th scope="col">1000</th>
+                        <th scope="col">100</th>
+                        <th scope="col">10</th>
+                        <th scope="col">1</th>
+                        <th scope="col">Especif. Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>h1</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>0001</td>
+                    </tr>
+                    <tr>
+                        <td>#important</td>
+                        <td>0</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0100</td>
+                    </tr>
+                    <tr>
+                        <td>h1 + p::first-letter</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>3</td>
+                        <td>0003</td>
+                    </tr>
+                    <tr>
+                        <td>li &gt; a[href=*"en-US"] &gt; .inline-warning</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>0022</td>
+                    </tr>
+                    <tr>
+                        <td>#important div &gt; div &gt; a:hover, dentro de un atributo style</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>1113</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>-->
+    <div class="orden"></div>
+    <div class="herencia">
+        <p class="parrf">Parrafo 1</p>
+        <p>Parrafo 2</p>
+    </div>
+
+
+</body>
+
+
+</html>

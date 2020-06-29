@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    
+    <form action="#">
+        <h1>Formularios</h1>
+         
+            <fieldset>
+                <legend>Formulario usuario</legend>
+              <div>  
+                <label>Ingresa tu nombre
+                    <input name="name" id="username" placeholder="Colucci">
+                </label>
+            </div>
+            <div> 
+                <label>Ingresa tu correo
+                    <input type="email" name="name" id="username">
+                </label>
+            </div>
+            </fieldset>
+        <fieldset>
+        <div>
+            <label> Ingrese su contraseña
+        <input type="password" id="password"></label>
+        </div>
+    </fieldset>
+        <fieldset>
+        <div>
+            <label> Mejor pais
+        <select name="country" id="country">
+            <optgroup label="mejores paises">
+                <option value="co">Colombia</option>
+                <option value="ca">Canada</option>
+                <option value="aus">Australia</option>
+            </optgroup>
+            <optgroup label="peores paises">
+                <option value="eu">EEUU</option>
+                <option value="ir">Irak</option>
+                <option value="con">COngo</option>
+            </optgroup>
+            <textarea name="Mensajito" id="" cols="30" rows="10" placeholder="Escribe mensaje"> </textarea>
+        </select>
+        </div>
+    </fieldset>
+        <!-- <button>Enviar</button> -->
+
+        <fieldset>
+            <legend>Checkbox</legend>
+            <label> <input type="checkbox" name="">Deporte</label>
+            <label> <input type="checkbox" name="">Musica</label>
+            <label> <input type="checkbox" name="">Arte</label>
+            <label> <input type="radio" name="gender">Hombre </label>
+            <label> <input type="radio" name="gender">Mujer</label>
+
+            
+        </fieldset>
+        <input type="submit" value="Ingresar">
+    </form>
+
+    <script>
+        document.getElementById('password')
+        .addEventListener('keyup', e =>{
+            console.log(e.target.value)
+        })
+
+    </script>
+</body>
+</html> 

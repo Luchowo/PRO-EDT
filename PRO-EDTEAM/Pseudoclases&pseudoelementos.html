@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo - clases/elementos </title>
+    <style>
+        :root {
+            --font-main: sans-serif;
+            --line-height: 1.6;
+            --font-size: 16px;
+            --header-height: 8rem;
+            --max-width: 1200px;
+            --text-color: #53575a;
+            --body-bg: #fafdff;
+          }
+          html {
+            box-sizing: border-box;
+            font-family: var(--font-main);
+            font-size: var(16px);
+            line-height: var(--line-height);
+            background-color: var(--body-bg);
+            color: var(--text-color);
+          }
+          
+          *,
+          *::after,
+          *::before {
+            box-sizing: inherit;
+            padding: 0;
+            margin: 0;
+          }
+          .header {
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            height: var(--header-height);
+            text-align: center;
+            background-color: teal;
+            color: white;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+          }
+          
+          a {
+            color: pink;
+            transition: color.3s ease-in;
+          }
+          
+          a:hover {
+            color: teal;
+          }
+          .main {
+            margin: 0 auto;
+            padding-top: var(--header-height);
+          }
+          
+          .main article {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background-color: darksalmon;
+            color: black;
+          }
+          
+          .main article:hover { /* :HOVER */
+            background-color: darkgoldenrod;
+            color: white;
+            transition: all 0.5s ease-out;
+          }
+          
+          .main article:active {
+            background-color: cyan;
+            color: purple;
+          }
+          
+          .main article:nth-child(even) { /* :NTH-CHILD */
+            background-color: darkgray;
+          }
+          .main article:nth-child(even):hover { 
+            background-color: darkgoldenrod;
+            color: white;
+            transition: all 0.5s ease-out;
+          }
+          
+          .main article:first-child{ /* :FIRST-CHILD */
+           font-size: 1.25rem;
+          }
+          .main article:last-child{ /* :LAST-CHILD */
+            font-size: .75rem;
+          }
+          .modal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 60, 50, 0.5);
+            /*   display: flex; */
+            justify-content: center;
+            align-items: center;
+            color: white;
+            display: none;
+          }
+          
+          .modal:target { /* :TARGET */
+            display: flex;
+          }
+          
+          .modal-box {
+            width: 50%;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: orange;
+          }
+          
+          .modal form{
+            display: flex;
+            flex-direction: column;
+          }
+          
+          .modal input:not([type="submit"]){ /* :NOT */
+            margin-bottom:.5rem;
+            padding:.5rem;
+            border:thin solid green;
+            background-color: whitesmoke;
+            color: teal;
+          }
+          .modal input[type="submit"]{ 
+            width: 50%;
+            margin: 0 auto .5rem;
+            padding: .5rem .25rem;
+            border: 0;
+             background-color: blueviolet;
+            border-radius: .25rem;
+            background-color: #3e00b3;
+            color: whitesmoke;
+            transition: all .3s ease-in;
+          }
+          .modal input[type="submit"]:hover{ 
+             background-color: blueviolet;
+            border-radius: 2rem;
+          }
+          
+          /* En este ejemplo, debe existir si o si un article en la posicion UNO. De lo contrario
+          no aplicara dicha clase si encuentra otro elemento diferente.
+          .hola article:nth-child(1){
+             color: blue;
+          }*/
+          
+          /* En este ejemplo se buscará al hijo directo de .hola en la posicion DOS (cualquiera que sea el elemento
+          ) 
+          .hola > :nth-child(2){
+             color: green;
+          }*/
+          
+          /* En este ejemplo, el elemento padre es .hola y buscará a su hijo en la posicion TRES. Sin embargo, si algun hijo de .hola
+          tambien es padre y a la ves cuenta con un hijo en la posicion TRES, igualmente se aplicara dicha clase a ese hijo. 
+          .hola :nth-child(3){
+             color: green;
+          }*/
+          
+          /* En este caso tiene sentido colocar article, ya que estas indicandole que haga la busqueda del CUARTO elemento article de
+          todos los article que existan dentro de .hola */
+          /* Tambien existe :first-of-type, :only-of-type y :last-of-type, que selecciona el primer hijo, el
+          unico hijo de ese tipo y el último hijo respectivamente. 
+          .hola article:nth-of-type(4){
+             color: red;
+          }*/
+          
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Pseudoclases</h1>
+        <p>Estilos dependiendo de la posicion, contexto o estado.</p>
+      </header>
+      
+      <main class="main">
+        <article>
+          <h2><code>:root</code></h2>
+          <p>Nodo principal del HTML</p>
+        </article>
+      
+        <article>
+          <h2><code>:hover</code></h2>
+          <p>El usuario pone el puntero</p>
+        </article>
+      
+        <article>
+          <h2><code>:active</code></h2>
+          <p>Elemento que esta siendo activado por medio del CLICK!
+      
+            <pre> Elemento en cascada recomendable:
+          :link
+          :visited
+          :hover
+          :active
+            </pre>
+          </p>
+        </article>
+      
+        <article>
+          <h2><code>:target</code></h2>
+          <p>Elemento que esta siendo asociado con un unico elemento ID</p>
+          <p><a href="#modal">Modal con CSS</a></p>
+        </article>
+        <div class="modal" id="modal">
+          <aside class="modal-box">
+            <h2>Soy un modal</h2>
+            <form >
+              <input type="email" placeholder="E-mail">
+              <input type="password" placeholder="Password">
+              <input type="submit">
+            </form>
+            <a href="#">cerrar</a>
+          </aside>
+        </div>
+      
+        <article>
+          <h2><code>:nth-child :first-child :last-child</code></h2>
+          <ul>
+            <li><code>:nth-child</code>: indica que sea el enesimo hijo de su elemento padre</li>
+            <li><code>:first-child</code>: selecciona el elemento indicado que se el primer hijo de su elemento padre</li>
+            <li><code>:last-child</code>: selecciona el elemento indicado que se el ultimo hijo de su elemento padre</li>
+          </ul>
+        </article>
+      
+      <article>
+          <h2><code>:not</code></h2>
+          <p>Elemento que esta siendo activado por medio del CLICK!
+      
+            <pre> Elemento en cascada recomendable:
+          :link
+          :visited
+          :hover
+          :active
+            </pre>
+          </p>
+        </article>
+      <article>
+          <h2><code>:empty</code></h2>
+          <p>El pseudo selector vacío seleccionará elementos que no contienen nada o solo un comentario HTML.
+            <p>Es útil para ocultar elementos vacíos que pueden causar espacios extraños (por ejemplo, tienen relleno). O algo así como eliminar el borde del elemento de celda de la tabla superior izquierda en una tabla de referencias cruzadas.</p>
+          </p>
+        </article>
+      </main>
+</body>
+</html>

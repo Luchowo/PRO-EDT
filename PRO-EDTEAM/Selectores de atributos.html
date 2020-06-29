@@ -1,0 +1,92 @@
+      
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Selectores de atributos</title>
+    <link rel="stylesheet" href="/styles.css">
+
+    <style>
+        h1{
+            color: red;
+            font-size: 3em;
+            text-align: center;
+        }
+        h2{
+            
+            font-size: 2em;
+        }
+        p{
+            font-size: 1.3em;
+            padding-left: 25px;
+        }
+        
+        /* SELECTORES DE PRESENCIA Y VALOR */
+        [sub]{    /*selector de atributo*/
+            text-decoration: underline red;
+        }
+        
+        [color=green]{  /*selector de atributo con valor '=' */
+            color: green;
+        }
+        
+        [color~=blue]{   /*selector con valor contenido entre una lista de valores '~' */
+            color:blue;
+        }
+        
+        
+        /* SELECTORES POR VALOR TEXTUAL */
+        
+        [color|=orange]{ /*valor separado por guion '|' */
+            color: orange;
+        }
+        
+        [detalle^=bor]{ /*valores que empiezan con  '^' */
+            border: 5px solid red;
+            background-color: purple;
+        
+        }
+        [detalle$=ble]{ /*valores que terminan con  '^' */
+            border: 5px double blue;
+            background-color: aqua;
+        
+        }
+        [borde*='borde dashed']{           /*valores que tienen valor con espacio  '*' */
+            border: 5px dashed red;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Bienvenidos a Zalo Developer</h1>
+
+    <!-- SELECTORES DE PRESENCIA Y VALOR -->
+    <h2>Selectores de presencia y valor</h2>
+    
+    <p sub="">Subrayame</p>
+
+    <p color="green">Pintame de verde</p>
+
+    <p color="green or blue">Pintame de azul</p>
+    
+    <!-- SELECTORES POR VALOR TEXTUAL -->
+    <h2>Selectores por valor textual</h2>
+
+    <p color="orange-yellow">Pintame de naranja</p>
+
+    <p detalle="borde">Bordeame y fondo morado</p>
+    
+    <p detalle="bordeado">Bordeame y fondo morado</p>
+    
+    <p detalle="doble">Doble borde y fondo aqua</p>
+    
+    <p detalle="aquadoble">Doble borde y fondo aqua</p>
+    
+    <p borde="borde dashed">Ponme un borde punteado</p>
+    
+</body>
+</html>
+   </body>
+</html>

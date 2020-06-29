@@ -1,0 +1,47 @@
+
+
+/*variable se declara*/
+:root {
+    /*se declaran con doble guion*/
+    --color: teal; 
+    --main-bg-color: yellow;
+    
+}
+
+.article{
+    background: var(--main-bg-color);
+  }
+
+table{
+
+    border-collapse: collapse;
+}
+
+td{
+
+    border: 1px solid #ccc;
+}
+
+th{
+    background: #444;
+    color: white;
+}
+
+td, th {
+
+    text-align: center;
+}
+tfoot{
+
+    background: red;
+    color: white;
+}
+
+p {
+    background: var(--color);
+    color: wheat;
+}
+h1{
+    background: var(--color);
+    color: white;
+}
